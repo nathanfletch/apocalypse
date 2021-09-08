@@ -1,23 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Apocalypse</title>
-</head>
-<body>
-    <div class="container-fluid text-center h-auto p-0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apocalypse</title>
+  </head>
+  <body>
+    <div id="landing-screen" class="container-fluid text-center h-auto p-0">
       <h1 id="title" class="p-1">How would you like the world to end?</h1>
       <div id="row" class="row">
-        <div class="m-0 col-6 " id="comet-select">
-          Comets and Asteroids
-        </div>
-        <div class="m-0 col-6 " id="fireball-select">
-          Fireballs
-        </div>
+        <div class="m-0 col-6 p-5" id="comet-select">Comets and Asteroids</div>
+        <div class="m-0 col-6 p-5" id="fireball-select">Fireballs</div>
       </div>
     </div>
-
-</body>
+    <div id="comet-screen" class="container-fluid text-center h-auto p-0 hidden">
+      <h2>The JPL tracks probabilities of future objects hitting the earth</h2>
+      <h2>Here are the 10 most likely:</h2>
+      <table id="comet-table" class="m-auto">
+        <thead>
+          <td>Name</td>
+          <td>Probability</td>
+          <td>Year Range</td>
+        </thead>
+      </table>
+    </div>
+    <div id="fireball-screen" class="container-fluid text-center h-auto p-0 hidden">
+      <h2>The JPL reports 871 fireballs recently!</h2>
+      <h2>Here are the top 10 in terms of kilotons:</h2>
+      <table id="fireball-table" class="m-auto">
+        <thead>
+          <td>Impact Energy in kt</td>
+          <td>Latitude</td>
+          <td>Longitude</td>
+        </thead>
+      </table>
+    </div>
+  </body>
 </html>

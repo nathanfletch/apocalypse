@@ -1,20 +1,50 @@
+.hidden {
+  display: none;
+}
 #comet-select {
   background-color: green;
-  height: 100%;
+  min-height: 100%;
   /* width: 100%; */
 }
 #fireball-select {
   background-color: red;
-  height: 100%;
+  min-height: 100%;
   /* width: 100%; */
 }
 #row {
   /* background-color: rgb(175, 199, 175); */
-  height: 60%;
+  min-height: 60%;
   /* width: 100%; */
 }
 #title {
   /* background-color: rgb(175, 199, 175); */
-  height: 40%;
+  min-height: 40%;
   /* width: 100%; */
+}
+table {
+  border-collapse: collapse;
+  border: 2px solid rgb(200,200,200);
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+}
+
+td, th {
+  border: 1px solid rgb(190,190,190);
+  padding: 10px 20px;
+}
+
+th {
+  background-color: rgb(235,235,235);
+}
+
+td {
+  text-align: center;
+}
+
+tr:nth-child(even) td {
+  background-color: white;
+}
+
+tr:nth-child(odd) td {
+  background-color: rgb(245,245,245);
 }
