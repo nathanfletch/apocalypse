@@ -1,0 +1,20 @@
+#comet-select {
+  background-color: green;
+  height: 100%;
+  /* width: 100%; */
+}
+#fireball-select {
+  background-color: red;
+  height: 100%;
+  /* width: 100%; */
+}
+#row {
+  /* background-color: rgb(175, 199, 175); */
+  height: 60%;
+  /* width: 100%; */
+}
+#title {
+  /* background-color: rgb(175, 199, 175); */
+  height: 40%;
+  /* width: 100%; */
+}
