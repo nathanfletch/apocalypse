@@ -17,27 +17,39 @@ $(document).ready(function () {
         .filter((fireball) => parseFloat(fireball[2]) >= 14)
         .sort((a, b) => b[2] - a[2]);
 
-      displayTopTenFireballs();
+      
     }, (error) => {
       $('#fireball-select').text(`There was an error processing your request: ${error}`);
+      
     })
-    .then(
-      axios(`http://api.openweathermap.org/geo/1.0/reverse?lat=${fireballs[0][3]}&lon=${fireballs[0][5]}&limit=1&appid=`).then(data => {
-        console.log(data);
+    .then(() => {
+      console.log(fireballs[0][3]);
+      axios(`http://api.openweathermap.org/geo/1.0/reverse?lat=${fireballs[0][3]}&lon=${fireballs[0][5]}&limit=1&appid=${process.env.API_KEY}`).then(data => {
+        console.log(data.data[0]);
+        displayTopTenFireballs(data.data[0]);
       })
+    }
+      // ${fireballs[0][3]} ${fireballs[0][5]}
+      
+      
       //make a new api call
     );
     
   });
 
-  function displayTopTenFireballs() {
+  function displayTopTenFireballs(location) {
     const topTenHtml = fireballs.map((fireball, i) => {
-      return `<tr id="${i}">
+      let fireballHtml = `<tr id="${i}">
       <td>${fireball[2]}</td>
       <td>${fireball[3]}</td>
-      <td>${fireball[5]}</td>
-      <td><button>Check distance</button></td>
-      </tr>`;
+      <td>${fireball[5]}</td>`;
+      if(i === 0) {
+        fireballHtml += `<td>${location.name}, ${location.country}</td>
+        </tr>`;
+      } else {
+        fireballHtml += `<td></td></tr>`
+      }
+      return fireballHtml;
     });
     $("#fireball-table").append(topTenHtml);
     $("#landing-screen").hide();
